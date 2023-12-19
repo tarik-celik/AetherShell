@@ -15,7 +15,7 @@ that is independent as possible.
 
 # Images
 
-![alt image]
+![alt image]()
 
 # Installation
 
