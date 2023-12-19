@@ -28,7 +28,7 @@ that is independent as possible.
 ## > cd ~
 ## > git clone github.com/tarik-celik/AetherShell
 ## > cd AetherShell
-## > clang/gcc aesh.c -o aesh
+## > cc aesh.c -o aesh
 ## > chmod +x aesh
 ## > cp aesh /usr/bin/aesh
 ## > aesh
