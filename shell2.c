@@ -1,6 +1,6 @@
 /*
 	18.12.2023
-Shell.c by Tarık Çelik
+aesh.c by Tarık Çelik
 
 This software is relased under bsd-3 clause
 license.
@@ -23,7 +23,7 @@ char command[50];
 char dir[50];
 char file[50];
 
-printf("\nShell 0.1 by Tarık Çelik \n");
+printf("\nAetherShell 0.1 by Tarık Çelik \n");
 printf("Write 'help' for help \n");
 
 while (exit == false) {
