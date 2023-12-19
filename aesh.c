@@ -17,6 +17,26 @@ license.
 #include <sys/stat.h>
 
 
+void copyFile(const char *source, const char *destination) {
+    FILE *sourceFile = fopen(source, "rb");
+    FILE *destFile = fopen(destination, "wb");
+
+    if (sourceFile == NULL || destFile == NULL) {
+        printf("Error: Unable to open files for copying.\n");
+        return;
+    }
+
+    char buffer[1024];
+    size_t bytesRead;
+
+    while ((bytesRead = fread(buffer, 1, sizeof(buffer), sourceFile)) > 0) {
+        fwrite(buffer, 1, bytesRead, destFile);
+    }
+
+    fclose(sourceFile);
+    fclose(destFile);
+}
+
 int main() {
 
 bool exit = false;
@@ -87,6 +107,13 @@ while (exit == false) {
 		scanf("%s", dir);
 		rename(file, dir);
 	}
+
+	if (strcmp(command, "cp") == 0) {
+		char sourcefile[100], destinationfile[100];
+      		 scanf("%s %s", sourcefile, destinationfile);
+       		 copyFile(sourcefile, destinationfile);
+    }
+
 	if (strcmp(command, "help") == 0) {
 
 		printf("\nAetherShell 0.1 by Tarık Çelik");
@@ -100,7 +127,8 @@ while (exit == false) {
 		printf("\n * touch <filename> for creating files");
 		printf("\n * rm <filename> for removing a file");
 		printf("\n * exec <command> for executing a command");
-		printf("\n * mv <filename> <location> for moving files");
+		printf("\n * mv <filename> <location > for moving a file");
+		printf("\n * cp <filename> <newfile> for moving a file");
                 printf("\n \n"); // we need that line for proper output
 		}
 	}
