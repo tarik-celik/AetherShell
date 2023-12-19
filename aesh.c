@@ -125,11 +125,11 @@ while (exit == false) {
 		num3 = num1 - num2;
 		printf("%.3f", num3);
 			}
-		if (op == *"/") {
+		if (op == *"/" || op == *":") {
 		num3 = num1 / num2;
 		printf("%.3f", num3);
 			}
-		if (op == *"x") {
+		if (op == *"x" || op == *"*") {
 		num3 = num1 * num2;
 		printf("%.3f", num3);
 		}
@@ -150,7 +150,6 @@ while (exit == false) {
 		printf("\n * exec <command> for executing a command");
 		printf("\n * mv <filename> <location > for moving a file");
 		printf("\n * cp <filename> <newfile> for moving a file");
-	        printf("\n * calc for cli calculator");
                 printf("\n \n"); // we need that line for proper output
 		}
 	}
