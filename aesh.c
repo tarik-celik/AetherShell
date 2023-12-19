@@ -16,13 +16,14 @@ license.
 #include <sys/types.h>
 #include <sys/stat.h>
 
+
 int main() {
 
 bool exit = false;
-char command[50];
-char dir[50];
-char file[50];
-char exc[50];
+char command[100];
+char dir[100];
+char file[100];
+char exc[100];
 
 printf("\nAetherShell 0.1 by Tarık Çelik \n");
 printf("Write 'help' for help \n");
@@ -79,6 +80,12 @@ while (exit == false) {
 	if (strcmp(command, "exec") == 0) {
 		fgets(exc, sizeof(exc), stdin);
 		system(exc);
+	}
+
+	if (strcmp(command, "mv") == 0) {
+		scanf("%s", file);
+		scanf("%s", dir);
+		rename(file, dir);
 	}
 	if (strcmp(command, "help") == 0) {
 
