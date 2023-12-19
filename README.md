@@ -13,6 +13,7 @@ that is independent as possible.
 * Create a directory (mkdir dirname)
 * Execute external commands (exec name)
 * Move files (mv file location)
+* Copy files (cp file location)
 
 # Images
 
