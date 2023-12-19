@@ -13,6 +13,10 @@ that is independent as possible.
 * Create a directory (mkdir <dirname>)
 * Execute external commands (exec <name>)
 
+# Images
+
+![alt image]
+
 # Installation
 
 ## > cd ~
