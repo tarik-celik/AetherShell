@@ -100,6 +100,7 @@ while (exit == false) {
 		printf("\n * touch <filename> for creating files");
 		printf("\n * rm <filename> for removing a file");
 		printf("\n * exec <command> for executing a command");
+		printf("\n * mv <filename> <location> for moving files");
                 printf("\n \n"); // we need that line for proper output
 		}
 	}
