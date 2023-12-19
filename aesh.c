@@ -22,6 +22,7 @@ bool exit = false;
 char command[50];
 char dir[50];
 char file[50];
+char exc[50];
 
 printf("\nAetherShell 0.1 by Tarık Çelik \n");
 printf("Write 'help' for help \n");
@@ -76,8 +77,8 @@ while (exit == false) {
 	}
 
 	if (strcmp(command, "exec") == 0) {
-		scanf("%s", file);
-		system(file);
+		fgets(exc, sizeof(exc), stdin);
+		system(exc);
 	}
 	if (strcmp(command, "help") == 0) {
 
