@@ -55,39 +55,33 @@ while (exit == false) {
 	}
 
 	if (strcmp(command, "mkdir") == 0) {
-	printf("[mkdir]: ");
 	scanf("%s",dir);
 	mkdir(dir, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 	}
 
 	if (strcmp(command, "rmdir") == 0) {
-		printf("[rmdir]: ");
 		scanf("%s", dir);
 		rmdir(dir);
 	}
 
 	if (strcmp(command, "touch") == 0) {
-		printf("[touch]: ");
 		scanf("%s", file);
 		FILE* File = fopen(file, "w");
 		fclose(File);
 	}
 
 	if (strcmp(command, "rm") == 0) {
-                printf("[rm]: ");
                 scanf("%s", file);
                 remove(file);
 	}
 
 	if (strcmp(command, "exec") == 0) {
-
-		printf("[exec]: ");
 		scanf("%s", file);
 		system(file);
 	}
 	if (strcmp(command, "help") == 0) {
 	
-		printf("\nShell 0.1 by Tarık Çelik");
+		printf("\nAetherShell 0.1 by Tarık Çelik");
 		printf("\n * help for that menu");
 		printf("\n * clear for clearing the screen");
 		printf("\n * exit for exiting");
@@ -98,7 +92,7 @@ while (exit == false) {
 		printf("\n * touch <filename> for creating files");
 		printf("\n * rm <filename> for removing a file");
 		printf("\n * exec <command> for executing a command");
-        printf("\n") // we need that line for proper output
+                printf("\n \n") // we need that line for proper output
 		}
 	}
 }
