@@ -16,7 +16,7 @@ that is independent as possible.
 # Images
 
 ![alt image](https://github.com/tarik-celik/AetherShell/blob/main/Screenshot_20231219_093735_Termux.jpg)
-![alt image]()
+![alt image](https://github.com/tarik-celik/AetherShell/blob/main/Screenshot_20231219_093750_Termux.jpg)
 
 # Installation
 
