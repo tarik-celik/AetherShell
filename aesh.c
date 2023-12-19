@@ -150,6 +150,7 @@ while (exit == false) {
 		printf("\n * exec <command> for executing a command");
 		printf("\n * mv <filename> <location > for moving a file");
 		printf("\n * cp <filename> <newfile> for moving a file");
+		printf("\n * calc for a cli calculator");
                 printf("\n \n"); // we need that line for proper output
 		}
 	}
