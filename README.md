@@ -12,6 +12,7 @@ that is independent as possible.
 * Create a file (touch <filename>)
 * Create a directory (mkdir <dirname>)
 * Execute external commands (exec <name>)
+* Move files (mv <file> <location>)
 
 # Images
 
