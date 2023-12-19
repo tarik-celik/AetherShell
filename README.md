@@ -15,10 +15,10 @@ that is independent as possible.
 
 # Installation
 
-> cd ~
-> git clone github.com/tarik-celik/AetherShell
-> cd AetherShell
-> clang/gcc AetherShell.c -o aesh
-> chmod +x aesh
-> mv aesh /usr/bin/aesh
-> aesh
+## > cd ~
+## > git clone github.com/tarik-celik/AetherShell
+## > cd AetherShell
+## > clang/gcc AetherShell.c -o aesh
+## > chmod +x aesh
+## > mv aesh /usr/bin/aesh
+## > aesh
