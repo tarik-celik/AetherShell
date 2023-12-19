@@ -27,5 +27,5 @@ that is independent as possible.
 ## > cd AetherShell
 ## > clang/gcc AetherShell.c -o aesh
 ## > chmod +x aesh
-## > mv aesh /usr/bin/aesh
+## > cp aesh /usr/bin/aesh
 ## > aesh
