@@ -45,7 +45,7 @@ char dir[100];
 char file[100];
 char exc[100];
 
-printf("\nAetherShell 0.1 by Tarık Çelik \n");
+printf("\nAetherShell 0.2 by Tarık Çelik \n");
 printf("Write 'help' for help \n");
 
 while (exit == false) {
@@ -109,14 +109,35 @@ while (exit == false) {
 	}
 
 	if (strcmp(command, "cp") == 0) {
-		 char sourcefile[100], destinationfile[100];
+         	 char sourcefile[100], destinationfile[100];
       		 scanf("%s %s", sourcefile, destinationfile);
        		 copyFile(sourcefile, destinationfile);
-    }
-
+       }
+	if (strcmp(command, "calc") == 0) {
+		float num1, num2, num3;
+		char op;
+     		scanf("%f %c %f", &num1, &op, &num2);
+		if (op == *"+") {
+		num3 = num1 + num2;
+		printf("%.3f",num3);
+			}
+		if (op == *"-") {
+		num3 = num1 - num2;
+		printf("%.3f", num3);
+			}
+		if (op == *"/") {
+		num3 = num1 / num2;
+		printf("%.3f", num3);
+			}
+		if (op == *"x") {
+		num3 = num1 * num2;
+		printf("%.3f", num3);
+		}
+		printf("\n");
+	}
 	if (strcmp(command, "help") == 0) {
 
-		printf("\nAetherShell 0.1 by Tarık Çelik");
+		printf("\nAetherShell 0.2 by Tarık Çelik");
 		printf("\n * help for that menu");
 		printf("\n * clear for clearing the screen");
 		printf("\n * exit for exiting");
