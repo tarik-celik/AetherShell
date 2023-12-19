@@ -80,7 +80,7 @@ while (exit == false) {
 		system(file);
 	}
 	if (strcmp(command, "help") == 0) {
-	
+
 		printf("\nAetherShell 0.1 by Tarık Çelik");
 		printf("\n * help for that menu");
 		printf("\n * clear for clearing the screen");
@@ -92,8 +92,7 @@ while (exit == false) {
 		printf("\n * touch <filename> for creating files");
 		printf("\n * rm <filename> for removing a file");
 		printf("\n * exec <command> for executing a command");
-                printf("\n \n") // we need that line for proper output
+                printf("\n \n"); // we need that line for proper output
 		}
 	}
 }
-    
