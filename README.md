@@ -6,13 +6,13 @@ that is independent as possible.
 # Features
 
 * Clearing the screen (clear)
-* Change directory (cd <dirname>)
-* Remove a file (rm <filename>)
-* Remove a directory (rmdir <dirname>)
-* Create a file (touch <filename>)
-* Create a directory (mkdir <dirname>)
-* Execute external commands (exec <name>)
-* Move files (mv <file> <location>)
+* Change directory (cd dirname)
+* Remove a file (rm filename)
+* Remove a directory (rmdir dirname)
+* Create a file (touch filename)
+* Create a directory (mkdir dirname)
+* Execute external commands (exec name)
+* Move files (mv file location)
 
 # Images
 
