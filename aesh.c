@@ -42,9 +42,10 @@ int main() {
 bool *exit = (bool *) malloc (sizeof(bool));
 *exit = false;
 char *command = (char *) malloc (10);
-char *dir = (char *) malloc (100);
-char *file = (char *) malloc (100);
+char *dir = (char *) malloc (500);
+char *file = (char *) malloc (500);
 char *exc = (char *) malloc (500);
+char *cwd = (char *) malloc (500);
 
 printf("\nAetherShell 0.3 by Tarık Çelik \n");
 printf("Write 'help' for help \n");
@@ -109,6 +110,12 @@ while (*exit == false) {
 		rename(file, dir);
 	}
 
+	if (strcmp(command, "pwd") == 0) {
+		getcwd(cwd, 500);
+		printf("%s\n", cwd);
+
+	}
+
 	if (strcmp(command, "cp") == 0) {
          	 char sourcefile[100], destinationfile[100];
       		 scanf("%s %s", sourcefile, destinationfile);
@@ -155,6 +162,7 @@ while (*exit == false) {
 		printf("\n * mv <filename> <location > for moving a file");
 		printf("\n * cp <filename> <newfile> for moving a file");
 		printf("\n * calc <operation> for calculating");
+		printf("\n * pwd for seeing current directory");
                 printf("\n \n"); // we need that line for proper output
 		}
 	}
@@ -164,4 +172,5 @@ free(command);
 free(dir);
 free(exc);
 free(file);
+free(cwd);
 }
