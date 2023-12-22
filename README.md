@@ -30,5 +30,6 @@ that is independent as possible.
 ## > cd AetherShell
 ## > cc aesh.c -o aesh
 ## > chmod +x aesh
-## > cp aesh /usr/bin/aesh
-## > aesh
+## > cp aesh ~/aesh
+## > cd ~
+## > ./aesh
