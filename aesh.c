@@ -117,9 +117,12 @@ while (*exit == false) {
 	}
 
 	if (strcmp(command, "cp") == 0) {
-         	 char sourcefile[100], destinationfile[100];
+         	 char *sourcefile = (char *) malloc (100);
+	 	 char *destinationfile = (char *) malloc (100);
       		 scanf("%s %s", sourcefile, destinationfile);
        		 copyFile(sourcefile, destinationfile);
+		 free(sourcefile);
+		 free(destinationfile);
        }
 	if (strcmp(command, "calc") == 0) {
 		float *num1 = (float *) malloc (sizeof(float));
