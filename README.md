@@ -15,6 +15,7 @@ that is independent as possible.
 * Move files (mv file location)
 * Copy files (cp file location)
 * cli calculator (calc)
+* Display current directory (pwd)
 
  # Images
 
