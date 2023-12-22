@@ -99,7 +99,7 @@ while (*exit == false) {
 	}
 
 	if (strcmp(command, "exec") == 0) {
-		fgets(exc, sizeof(exc), stdin);
+		scanf(" %[^\n]", exc);
 		system(exc);
 	}
 
