@@ -26,29 +26,30 @@ void copyFile(const char *source, const char *destination) {
         return;
     }
 
-    char buffer[1024];
+    char *buffer = (char *) malloc (1024);
     size_t bytesRead;
 
     while ((bytesRead = fread(buffer, 1, sizeof(buffer), sourceFile)) > 0) {
         fwrite(buffer, 1, bytesRead, destFile);
     }
-
+    free(buffer);
     fclose(sourceFile);
     fclose(destFile);
 }
 
 int main() {
 
-bool exit = false;
-char command[100];
-char dir[100];
-char file[100];
-char exc[100];
+bool *exit = (bool *) malloc (sizeof(bool));
+*exit = false;
+char *command = (char *) malloc (10);
+char *dir = (char *) malloc (100);
+char *file = (char *) malloc (100);
+char *exc = (char *) malloc (500);
 
-printf("\nAetherShell 0.2 by Tarık Çelik \n");
+printf("\nAetherShell 0.3 by Tarık Çelik \n");
 printf("Write 'help' for help \n");
 
-while (exit == false) {
+while (*exit == false) {
 
 	printf("* ");
 	scanf("%s", command);
@@ -58,7 +59,7 @@ while (exit == false) {
 		}
 
 	if (strcmp(command, "exit") == 0) {
-	exit = true;
+	*exit = true;
 		}
 
 	if (strcmp(command, "cd") == 0) {
@@ -114,30 +115,33 @@ while (exit == false) {
        		 copyFile(sourcefile, destinationfile);
        }
 	if (strcmp(command, "calc") == 0) {
-		float num1, num2, num3;
-		char op;
-     		scanf("%f %c %f", &num1, &op, &num2);
-		if (op == *"+") {
-		num3 = num1 + num2;
-		printf("%.3f",num3);
+		float *num1 = (float *) malloc (sizeof(float));
+		float *num2 = (float *) malloc (sizeof(float));
+		float *num3 = (float *) malloc (sizeof(float));
+		char *op = (char *) malloc (1);
+		scanf("%f %c %f", num1, op, num2);
+		if (*op == *"+") {
+		*num3 = *num1 + *num2;
 			}
-		if (op == *"-") {
-		num3 = num1 - num2;
-		printf("%.3f", num3);
+		if (*op == *"-") {
+		*num3 = *num1 - *num2;
 			}
-		if (op == *"/" || op == *":") {
-		num3 = num1 / num2;
-		printf("%.3f", num3);
+		if (*op == *"/" || *op == *":") {
+		*num3 = *num1 / *num2;
 			}
-		if (op == *"x" || op == *"*") {
-		num3 = num1 * num2;
-		printf("%.3f", num3);
+		if (*op == *"x" || *op == *"*") {
+		*num3 = *num1 * *num2;
 		}
+		printf("%.3f", *num3);
 		printf("\n");
+		free(num1);
+		free(num2);
+		free(num3);
+		free(op);
 	}
 	if (strcmp(command, "help") == 0) {
 
-		printf("\nAetherShell 0.2 by Tarık Çelik");
+		printf("\nAetherShell 0.3 by Tarık Çelik");
 		printf("\n * help for that menu");
 		printf("\n * clear for clearing the screen");
 		printf("\n * exit for exiting");
@@ -154,4 +158,10 @@ while (exit == false) {
                 printf("\n \n"); // we need that line for proper output
 		}
 	}
+
+free(exit);
+free(command);
+free(dir);
+free(exc);
+free(file);
 }
