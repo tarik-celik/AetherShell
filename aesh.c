@@ -16,27 +16,6 @@ license.
 #include <sys/types.h>
 #include <sys/stat.h>
 
-
-void copyFile(const char *source, const char *destination) {
-    FILE *sourceFile = fopen(source, "rb");
-    FILE *destFile = fopen(destination, "wb");
-
-    if (sourceFile == NULL || destFile == NULL) {
-        printf("Error: Unable to open files for copying.\n");
-        return;
-    }
-
-    char *buffer = (char *) malloc (1024);
-    size_t bytesRead;
-
-    while ((bytesRead = fread(buffer, 1, sizeof(buffer), sourceFile)) > 0) {
-        fwrite(buffer, 1, bytesRead, destFile);
-    }
-    free(buffer);
-    fclose(sourceFile);
-    fclose(destFile);
-}
-
 int main() {
 
 bool *exit = (bool *) malloc (sizeof(bool));
@@ -117,13 +96,29 @@ while (*exit == false) {
 	}
 
 	if (strcmp(command, "cp") == 0) {
-         	 char *sourcefile = (char *) malloc (100);
-	 	 char *destinationfile = (char *) malloc (100);
-      		 scanf("%s %s", sourcefile, destinationfile);
-       		 copyFile(sourcefile, destinationfile);
-		 free(sourcefile);
-		 free(destinationfile);
-       }
+            char *sourcefile = (char *)malloc(100);
+            char *destinationfile = (char *)malloc(100);
+            scanf("%s %s", sourcefile, destinationfile);
+	    FILE *sourceFile = fopen(sourcefile, "rb");
+            FILE *destFile = fopen(destinationfile, "wb");
+	    if (sourceFile == NULL || destFile == NULL) {
+                printf("Error: Unable to open files for copying.\n");
+            } else {
+                char *buffer = (char *)malloc(1024);
+                size_t bytesRead;
+
+                while ((bytesRead = fread(buffer, 1, sizeof(buffer), sourceFile)) > 0) {
+                    fwrite(buffer, 1, bytesRead, destFile);
+                }
+
+                free(buffer);
+                fclose(sourceFile);
+                fclose(destFile);
+            }
+
+            free(sourcefile);
+            free(destinationfile);
+        }
 	if (strcmp(command, "calc") == 0) {
 		float *num1 = (float *) malloc (sizeof(float));
 		float *num2 = (float *) malloc (sizeof(float));
