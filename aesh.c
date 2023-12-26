@@ -48,14 +48,20 @@ while (*exit == false) {
 	}
 
 	if (strcmp(command, "ls") == 0) {
-	 DIR *dir;
-	 struct dirent *entry;
-	 dir = opendir(".");
-	 while ((entry = readdir(dir)) != NULL) {
-         printf("%s\n", entry->d_name);
+    	if (access(".", R_OK) != 0) { // Check for read permission
+        printf("Cannot access directory: No read permission\n");
+  	  } 
+	else {
+        DIR *dir;
+        struct dirent *entry;
+        dir = opendir(".");
+        while ((entry = readdir(dir)) != NULL) {
+            printf("%s\n", entry->d_name);
+        }
+        closedir(dir);
+    		}
 	}
-	 closedir(dir);
-	}
+
 
 	if (strcmp(command, "mkdir") == 0) {
 	scanf("%s",dir);
@@ -150,14 +156,14 @@ while (*exit == false) {
 		printf("\n * help for that menu");
 		printf("\n * clear for clearing the screen");
 		printf("\n * exit for exiting");
-		printf("\n * cd <path>for entering to a directory");
+		printf("\n * cd <path> for entering to a directory");
 		printf("\n * ls for listing contents of current directory");
 		printf("\n * mkdir <dirname> for creating a directory");
 		printf("\n * rmdir <dirname> for removing a directory");
 		printf("\n * touch <filename> for creating files");
 		printf("\n * rm <filename> for removing a file");
 		printf("\n * exec <command> for executing a command");
-		printf("\n * mv <filename> <location > for moving a file");
+		printf("\n * mv <filename> <new location > for moving a file");
 		printf("\n * cp <filename> <newfile> for moving a file");
 		printf("\n * calc <operation> for calculating");
 		printf("\n * pwd for seeing current directory");
