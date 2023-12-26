@@ -77,6 +77,7 @@ while (*exit == false) {
 		scanf("%s", file);
 		FILE* File = fopen(file, "w");
 		fclose(File);
+		free(File);
 	}
 
 	if (strcmp(command, "rm") == 0) {
@@ -125,6 +126,7 @@ while (*exit == false) {
             free(sourcefile);
             free(destinationfile);
         }
+
 	if (strcmp(command, "calc") == 0) {
 		float *num1 = (float *) malloc (sizeof(float));
 		float *num2 = (float *) malloc (sizeof(float));
