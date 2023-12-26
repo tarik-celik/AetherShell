@@ -58,7 +58,6 @@ while (*exit == false) {
         while ((entry = readdir(dir)) != NULL) {
             printf("%s\n", entry->d_name);
         }
-	free(dir);
         closedir(dir);
     		}
 	}
