@@ -2,8 +2,7 @@
 	18.12.2023
 aesh.c by Tarık Çelik
 
-This software is relased under bsd-3 clause
-license.
+This software is relased under mit license.
 
 */
 
