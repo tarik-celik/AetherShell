@@ -2,23 +2,22 @@
 	18.12.2023
 aesh.c by Tarık Çelik
 
-This software is relased under mit license.
+This software is relased under bsd-3 clause
+license.
 
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdbool.h>
-#include <string.h>
 #include <dirent.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 
 int main() {
 
-bool *exit = (bool *) malloc (sizeof(bool));
-*exit = false;
+int *exit = (int *) malloc (sizeof(int));
+*exit = 0;
 char *command = (char *) malloc (10);
 char *dir = (char *) malloc (500);
 char *file = (char *) malloc (500);
@@ -28,25 +27,25 @@ char *cwd = (char *) malloc (500);
 printf("\nAetherShell 0.3 by Tarık Çelik \n");
 printf("Write 'help' for help \n");
 
-while (*exit == false) {
+while (*exit == 0) {
 
 	printf("* ");
 	scanf("%s", command);
 
-	if (strcmp(command, "clear") == 0) {
+	if (*command == *"clear") {
 	printf("\e[1;1H\e[2J");
 		}
 
-	if (strcmp(command, "exit") == 0) {
-	*exit = true;
+	if (*command == *"exit") {
+	*exit = 1;
 		}
 
-	if (strcmp(command, "cd") == 0) {
+	if (*command == *"cd") {
 	scanf("%s", dir);
 	chdir(dir);
 	}
 
-	if (strcmp(command, "ls") == 0) {
+	if (*command == *"ls") {
     	if (access(".", R_OK) != 0) { // Check for read permission
         printf("Cannot access directory: No read permission\n");
   	  } 
@@ -62,46 +61,45 @@ while (*exit == false) {
 	}
 
 
-	if (strcmp(command, "mkdir") == 0) {
+	if (*command == *"mkdir") {
 	scanf("%s",dir);
 	mkdir(dir, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 	}
 
-	if (strcmp(command, "rmdir") == 0) {
+	if (*command == *"rmdir") {
 		scanf("%s", dir);
 		rmdir(dir);
 	}
 
-	if (strcmp(command, "touch") == 0) {
+	if (*command == *"touch") {
 		scanf("%s", file);
 		FILE* File = fopen(file, "w");
 		fclose(File);
 		free(File);
 	}
 
-	if (strcmp(command, "rm") == 0) {
+	if (*command == *"rm") {
                 scanf("%s", file);
                 remove(file);
 	}
-
-	if (strcmp(command, "exec") == 0) {
+	if (*command == *"exec") {
 		scanf(" %[^\n]", exc);
 		system(exc);
 	}
 
-	if (strcmp(command, "mv") == 0) {
+	if (*command == *"mv") {
 		scanf("%s", file);
 		scanf("%s", dir);
 		rename(file, dir);
 	}
 
-	if (strcmp(command, "pwd") == 0) {
+	if (*command == *"pwd") {
 		getcwd(cwd, 500);
 		printf("%s\n", cwd);
 
 	}
 
-	if (strcmp(command, "cp") == 0) {
+	if (*command == *"cp") {
             char *sourcefile = (char *)malloc(100);
             char *destinationfile = (char *)malloc(100);
             scanf("%s %s", sourcefile, destinationfile);
@@ -126,7 +124,7 @@ while (*exit == false) {
             free(destinationfile);
         }
 
-	if (strcmp(command, "calc") == 0) {
+	if (*command == *"calc") {
 		float *num1 = (float *) malloc (sizeof(float));
 		float *num2 = (float *) malloc (sizeof(float));
 		float *num3 = (float *) malloc (sizeof(float));
@@ -151,7 +149,7 @@ while (*exit == false) {
 		free(num3);
 		free(op);
 	}
-	if (strcmp(command, "help") == 0) {
+	if (*command == *"help") {
 
 		printf("\nAetherShell 0.3 by Tarık Çelik");
 		printf("\n * help for that menu");
