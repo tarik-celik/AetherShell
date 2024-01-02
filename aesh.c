@@ -58,6 +58,7 @@ while (*exit == false) {
             printf("%s\n", entry->d_name);
         }
         closedir(dir);
+	free(entry);
     		}
 	}
 
@@ -76,7 +77,6 @@ while (*exit == false) {
 		scanf("%s", file);
 		FILE* File = fopen(file, "w");
 		fclose(File);
-		free(File);
 	}
 
 	if (strcmp(command, "rm") == 0) {
@@ -151,6 +151,7 @@ while (*exit == false) {
 		free(num3);
 		free(op);
 	}
+		
 	if (strcmp(command, "help") == 0) {
 
 		printf("\nAetherShell 0.3 by Tarık Çelik");
