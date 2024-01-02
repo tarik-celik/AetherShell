@@ -1,5 +1,5 @@
 /*
-	18.12.2023
+ 18.12.2023
 aesh.c by Tarık Çelik
 
 This software is relased under mit license.
@@ -14,6 +14,8 @@ This software is relased under mit license.
 #include <dirent.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/cdefs.h>
+#include <pwd.h>
 
 int main() {
 
@@ -23,14 +25,14 @@ char *command = (char *) malloc (10);
 char *dir = (char *) malloc (500);
 char *file = (char *) malloc (500);
 char *exc = (char *) malloc (500);
-char *cwd = (char *) malloc (500);
 
-printf("\nAetherShell 0.3 by Tarık Çelik \n");
+printf("\nAetherShell 0.4 by Tarık Çelik \n");
 printf("Write 'help' for help \n");
 
 while (*exit == false) {
+	//main loop starts
 
-	printf("* ");
+	printf("= ");
 	scanf("%s", command);
 
 	if (strcmp(command, "clear") == 0) {
@@ -49,11 +51,13 @@ while (*exit == false) {
 	if (strcmp(command, "ls") == 0) {
     	if (access(".", R_OK) != 0) { // Check for read permission
         printf("Cannot access directory: No read permission\n");
-  	  } 
+  	  }
 	else {
         DIR *dir;
         struct dirent *entry;
         dir = opendir(".");
+	//the line bellow prevents from the error
+	//when ther is no read permission
         while ((entry = readdir(dir)) != NULL) {
             printf("%s\n", entry->d_name);
         }
@@ -75,8 +79,10 @@ while (*exit == false) {
 
 	if (strcmp(command, "touch") == 0) {
 		scanf("%s", file);
-		FILE* File = fopen(file, "w");
+		FILE *File = fopen(file, "w");
 		fclose(File);
+	//it crashes if you try to create a file
+	//in a dir with no permissions
 	}
 
 	if (strcmp(command, "rm") == 0) {
@@ -93,12 +99,25 @@ while (*exit == false) {
 		scanf("%s", file);
 		scanf("%s", dir);
 		rename(file, dir);
+		//it 'renames' the file in the wanted adress
 	}
 
 	if (strcmp(command, "pwd") == 0) {
-		getcwd(cwd, 500);
-		printf("%s\n", cwd);
+		getcwd(dir, 500);
+		printf("%s\n", dir);
+	}
 
+	if (strcmp(command, "hostname") == 0) {
+		char *hostname = (char *) malloc (64);
+	        gethostname(hostname, 64);
+        	printf("%s\n", hostname);
+		free(hostname);
+	}
+
+	if (strcmp(command, "whoami") == 0) {
+	struct passwd *pw = getpwuid(geteuid());
+	printf("%s\n", pw->pw_name);
+	//freeing it causes a segfault.
 	}
 
 	if (strcmp(command, "cp") == 0) {
@@ -127,6 +146,7 @@ while (*exit == false) {
         }
 
 	if (strcmp(command, "calc") == 0) {
+//  a simple cli calculator
 		float *num1 = (float *) malloc (sizeof(float));
 		float *num2 = (float *) malloc (sizeof(float));
 		float *num3 = (float *) malloc (sizeof(float));
@@ -151,10 +171,10 @@ while (*exit == false) {
 		free(num3);
 		free(op);
 	}
-		
+
 	if (strcmp(command, "help") == 0) {
 
-		printf("\nAetherShell 0.3 by Tarık Çelik");
+		printf("\nAetherShell 0.4 by Tarık Çelik");
 		printf("\n * help for that menu");
 		printf("\n * clear for clearing the screen");
 		printf("\n * exit for exiting");
@@ -169,7 +189,10 @@ while (*exit == false) {
 		printf("\n * cp <filename> <newfile> for moving a file");
 		printf("\n * calc <operation> for calculating");
 		printf("\n * pwd for seeing current directory");
+		printf("\n * hostname for seeing hostname");
+		printf("\n * whoami for seeing the current user");
                 printf("\n \n"); // we need that line for proper output
+
 		}
 	}
 
@@ -178,5 +201,4 @@ free(command);
 free(dir);
 free(exc);
 free(file);
-free(cwd);
 }
