@@ -16,6 +16,8 @@ that is independent as possible.
 * Copy files (cp file location)
 * cli calculator (calc)
 * Display current directory (pwd)
+* Display the host name (hostname)
+* Display the current user (whoami)
 
  # Images
 
