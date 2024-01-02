@@ -25,6 +25,7 @@ that is independent as possible.
 ![alt image](https://github.com/tarik-celik/AetherShell/blob/main/Screenshot_20231222_185148_Termux.jpg)
 ![alt image](https://github.com/tarik-celik/AetherShell/blob/main/Screenshot_20231222_185351_Termux.jpg)
 ![alt image](https://github.com/tarik-celik/AetherShell/blob/main/Screenshot_20231222_185603_Termux.jpg)
+![alt image](https://github.com/tarik-celik/AetherShell)
 
 # Installation
 
