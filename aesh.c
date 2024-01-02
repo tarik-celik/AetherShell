@@ -26,13 +26,17 @@ char *dir = (char *) malloc (500);
 char *file = (char *) malloc (500);
 char *exc = (char *) malloc (500);
 
+struct passwd *pw = getpwuid(geteuid());
+char *hostname = (char *) malloc (64);
+gethostname(hostname, 64);
 printf("\nAetherShell 0.4 by Tarık Çelik \n");
 printf("Write 'help' for help \n");
 
 while (*exit == false) {
 	//main loop starts
 
-	printf("= ");
+	//printf("%s", pw->pw_name);
+	printf("%s%s%s%s",pw->pw_name, "@", hostname, "# ");
 	scanf("%s", command);
 
 	if (strcmp(command, "clear") == 0) {
@@ -108,16 +112,13 @@ while (*exit == false) {
 	}
 
 	if (strcmp(command, "hostname") == 0) {
-		char *hostname = (char *) malloc (64);
 	        gethostname(hostname, 64);
         	printf("%s\n", hostname);
-		free(hostname);
 	}
 
 	if (strcmp(command, "whoami") == 0) {
 	struct passwd *pw = getpwuid(geteuid());
 	printf("%s\n", pw->pw_name);
-	//freeing it causes a segfault.
 	}
 
 	if (strcmp(command, "cp") == 0) {
@@ -201,4 +202,5 @@ free(command);
 free(dir);
 free(exc);
 free(file);
+free(hostname);
 }
