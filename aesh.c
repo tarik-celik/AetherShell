@@ -36,7 +36,7 @@ while (*exit == false) {
 	//main loop starts
 
 	//printf("%s", pw->pw_name);
-	printf("%s%s%s%s",pw->pw_name, "@", hostname, "# ");
+	printf("%s", "= ");
 	scanf("%s", command);
 
 	if (strcmp(command, "clear") == 0) {
@@ -203,4 +203,5 @@ free(dir);
 free(exc);
 free(file);
 free(hostname);
+return 0;
 }
