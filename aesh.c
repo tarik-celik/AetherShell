@@ -25,10 +25,8 @@ char *command = (char *) malloc (10);
 char *dir = (char *) malloc (500);
 char *file = (char *) malloc (500);
 char *exc = (char *) malloc (500);
-
-struct passwd *pw = getpwuid(geteuid());
 char *hostname = (char *) malloc (64);
-gethostname(hostname, 64);
+
 printf("\nAetherShell 0.4 by Tarık Çelik \n");
 printf("Write 'help' for help \n");
 
