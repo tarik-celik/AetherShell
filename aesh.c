@@ -145,7 +145,7 @@ while (*exit == false) {
         }
 
 	if (strcmp(command, "calc") == 0) {
-//  a simple cli calculator
+	//  a simple cli calculator
 		float *num1 = (float *) malloc (sizeof(float));
 		float *num2 = (float *) malloc (sizeof(float));
 		float *num3 = (float *) malloc (sizeof(float));
