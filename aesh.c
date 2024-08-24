@@ -2,7 +2,7 @@
  18.12.2023
 aesh.c by Tarık Çelik
 
-This software is relased under mit license.
+This software is relased under agpl3 license.
 
 */
 
