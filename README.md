@@ -29,11 +29,11 @@ that is independent as possible.
 
 # Installation
 
-## > cd ~
-## > git clone github.com/tarik-celik/AetherShell
-## > cd AetherShell
-## > cc aesh.c -o aesh
-## > chmod +x aesh
-## > cp aesh ~/aesh
-## > cd ~
-## > ./aesh
+## `$ cd ~`
+## `$ git clone github.com/tarik-celik/AetherShell`
+## `$ cd AetherShell`
+## `$ gcc aesh.c -o aesh`
+## `$ chmod +x aesh`
+## `$ cp aesh ~/aesh`
+##  `$ cd ~`
+##  `$ ./aesh`
