@@ -18,6 +18,7 @@ that is independent as possible.
 * Display current directory (pwd)
 * Display the host name (hostname)
 * Display the current user (whoami)
+* Display the os (uname)
 
  # Images
 
