@@ -27,6 +27,7 @@ char *file = (char *) malloc (500);
 char *exc = (char *) malloc (500);
 char *hostname = (char *) malloc (64);
 
+system("date");
 printf("\nAetherShell 0.4 by Tarık Çelik \n");
 printf("Write 'help' for help \n");
 
@@ -170,6 +171,10 @@ while (*exit == false) {
 		free(num3);
 		free(op);
 	}
+	if (strcmp(command, "uname") == 0) {
+		system("uname");
+	}
+
 
 	if (strcmp(command, "help") == 0) {
 
@@ -190,7 +195,8 @@ while (*exit == false) {
 		printf("\n * pwd for seeing current directory");
 		printf("\n * hostname for seeing hostname");
 		printf("\n * whoami for seeing the current user");
-                printf("\n \n"); // we need that line for proper output
+		printf("\n * uname for  seeing the os");
+		printf("\n\n"); // we need that line for proper output
 
 		}
 	}
