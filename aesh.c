@@ -178,7 +178,7 @@ while (*exit == false) {
 
 	if (strcmp(command, "help") == 0) {
 
-		printf("\nAetherShell 0.4 by Tarık Çelik");
+		printf("\nAetherShell 0.5 by Tarık Çelik");
 		printf("\n * help for that menu");
 		printf("\n * clear for clearing the screen");
 		printf("\n * exit for exiting");
